@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Kodchasan&display=swap");
+
+*{
+    padding: 0;
+    overflow-x: hidden;
+    margin: 0;
+    user-select: none;
+}
+
+#headertop{
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headertop p a {
+    text-decoration: none;
+    font-family: Kodchasan;
+    color: white;
+    font-weight: 500;
+}
+
+#nav {
+    background-image: url("/FRONT/images/jpg/pexels-elevate-1267350.jpg");
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+}
+
+
+#head-nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#head-nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Kodchasan;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#section {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+}
+
+.title {
+    font-family: Kodchasan;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.big-z {
+    font-size: 45px;
+}
