@@ -3,3 +3,6 @@ uvicorn
 sqlmodel
 psycopg2
 python-dotenv
+passlib[bcrypt]
+pyjwt
+python-multipart
