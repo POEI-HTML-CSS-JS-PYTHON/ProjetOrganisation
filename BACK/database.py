@@ -2,6 +2,12 @@ from sqlmodel import SQLModel, create_engine, Session
 import os
 from dotenv import load_dotenv
 
+from app.models.Utilisateurs import User
+from app.models.Evenements import Evenements
+from app.models.Reservations import Reservations
+
+
+
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")

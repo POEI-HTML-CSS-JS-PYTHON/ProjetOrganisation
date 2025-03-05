@@ -19,3 +19,15 @@ Dossier de l'application : Models, Schemas, Routes, point d'entrée, requirement
 ## Mise en place du système de gestion des utilisateurs
 
 ## Requete CRUD
+
+Creation d'un evenement
+Liste de tous les evenements
+Liste d'un evenement
+Modification d'un evenement
+Suppression d'un evenement
+Creation d'un utilisateur
+Liste de tous les utilisateurs
+Modification d'un utilisateur
+Suppression d'un utilisateur
+Login d'un utilisateur
+Deconnexion d'un utilisateur
