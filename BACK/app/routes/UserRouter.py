@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 from database import get_db
 from app.models.Utilisateurs import User
-from app.schemas import Token, UserCreate, UserLogin
+from app.schemas import Token, UserCreate, UserLogin, UserRoleUpdate
 from app.dependencies import get_current_user
 
 # Charger les variables d'environnement
@@ -77,3 +77,50 @@ def logout(response: Response):
 @router.get("/me")
 def get_me(current_user: User = Depends(get_current_user)):
     return {"email": current_user.email, "role": current_user.role}
+
+
+from app.schemas.UserSchema import UserRoleUpdate
+
+@router.patch("/{user_id}/role")
+def update_user_role(
+    user_id: int,
+    role_update: UserRoleUpdate,  # ✅ Maintenant, `new_role` est dans le body
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    # Vérifier que l'utilisateur est admin
+    if current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Accès refusé : seul un administrateur peut modifier un rôle")
+
+    user = db.get(User, user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+
+    if role_update.new_role not in ["participant", "organisateur", "admin"]:
+        raise HTTPException(status_code=400, detail="Rôle invalide")
+
+    user.role = role_update.new_role  # ✅ Mise à jour du rôle
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return {"message": f"Le rôle de {user.email} a été mis à jour en {role_update.new_role}"}
+
+@router.post("/create-admin")
+def create_admin_user(user: UserCreate, db: Session = Depends(get_db)):
+    """Création d'un utilisateur avec un rôle spécifique (réservé aux devs)"""
+
+    existing_user = db.exec(select(User).where(User.email == user.email)).first()
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email déjà utilisé")
+
+    if user.role not in ["participant", "organisateur", "admin"]:
+        raise HTTPException(status_code=400, detail="Rôle invalide")
+
+    hashed_password = hash_password(user.password)
+    new_user = User(email=user.email, password=hashed_password, role=user.role)
+
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    
+    return {"message": f"Utilisateur {user.email} créé avec le rôle {user.role} 🎉"}
