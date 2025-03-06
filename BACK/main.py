@@ -2,6 +2,7 @@ import sys
 import os
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
+from fastapi.middleware.cors import CORSMiddleware
 
 # 📌 Assurer que `app/` est bien reconnu comme un module Python
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
