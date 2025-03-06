@@ -64,7 +64,7 @@ def login(user: UserLogin, response: Response, db: Session = Depends(get_db)):
         value=f"Bearer {access_token}",
         httponly=True,
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
-        samesite="None",
+        samesite=None,
         secure=True
     )
 
