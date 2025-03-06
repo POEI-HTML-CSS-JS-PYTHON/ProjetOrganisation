@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Kodchasan&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    /* user-select: none; */
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 9000px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#headertop{
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+#bonjour{
+    font-family: Kodchasan;
+}
+#cart-info {
+    display: flex;
+    align-items: center; /* Aligner verticalement le panier et la valeur */
+}
+
+#cart-value {
+    color: white;
+    font-family: Kodchasan;
+}
+
+#cart-icon {
+    width: 24px; /* Ajustez la taille selon besoin */
+    height: 24px; /* Ajustez la taille selon besoin */
+    margin-right: 5px; /* Espacement entre l'icône et la valeur */
+}
+
+#headertop p a {
+    text-decoration: none;
+    font-family: Kodchasan;
+    color: white;
+    font-weight: 500;
+}
+
+#nav {
+    background-image: url("../images/jpg/pexels-elevate-1267350.jpg");
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+}
+
+
+#head-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#head-nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Kodchasan;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#head-nav a:hover {
+    font-style: oblique;
+}
+
+#section {
+    padding-top: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title {
+    font-family: Kodchasan;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+
+.big-z {
+    font-size: 70px;
+}
+
+#slog {
+    padding-top: 25px;
+    text-align: center;
+    font-family: Kodchasan;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+#cont-sec{
+    padding-top: 129px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cont-sec button {
+    padding: 10px 30px;
+    height: 60px;
+    border: none;
+    background-color: #d9d9d9;
+    color: rgb(0, 0, 0);
+    font-family: Kodchasan;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#active-v {
+    border-radius: 150px 0px 0px 0px;
+}
+#active-w {
+    border-radius: 0px 150px 0px 0px;
+}
+
+.active-btn {
+    background-color: #ff32b4 !important;
+    color: white !important;
+}
+#cont-sec button:hover {
+    background-color: #ff69b4 !important;
+}
+
+#menu-icon {
+    display: none; /* Par défaut, caché sur les grands écrans */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 4px;
+    width: 30px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 820px) {
+    #cont-sec {
+        flex-wrap: wrap;
+        display: flex;
+    }
+    #active-v {
+            border-radius: 0px 0px 0px 0px;
+        }
+    #active-w {
+            border-radius: 0px 0px 0px 0px;
+        }
+    #filtre {
+        height: 200px !important;
+    }
+}
+#filtre{
+    height: 200px;
+    background: linear-gradient(90deg, rgba(191,18,128,1) 0%, rgba(52,0,89,1) 100%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+#filtre h2 {
+    text-align: center;
+    color: #ffffff;
+    font-family: Kodchasan;
+    font-weight: bold;
+}
+
+#filtre form {
+    padding-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: Kodchasan;
+    color: white;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 120px;
+}
+
+#filtre label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+#filtre input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: rgb(129, 129, 129);
+}
+
+#filtre button {
+    background-color: #bb167c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 120px;
+}
+
+#filtre button:hover {
+    background-color: #b121a5;
+}
