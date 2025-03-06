@@ -9,7 +9,23 @@
 
 body {
     width: 100%;
-    height: 1000px;
+    height: 9000px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 #headertop{
@@ -53,6 +69,10 @@ body {
     font-family: Kodchasan;
     font-weight: bold;
     font-size: 25px;
+}
+
+#head-nav a:hover {
+    font-style: oblique;
 }
 
 #section {
@@ -100,17 +120,20 @@ body {
     font-family: Kodchasan;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #active-v {
-    background-color: #ff32b4 !important;
     border-radius: 150px 0px 0px 0px;
-    color: white !important
 }
 #active-w {
     border-radius: 0px 150px 0px 0px;
 }
 
+.active-btn {
+    background-color: #ff32b4 !important;
+    color: white !important;
+}
 #cont-sec button:hover {
     background-color: #ff69b4 !important;
 }
