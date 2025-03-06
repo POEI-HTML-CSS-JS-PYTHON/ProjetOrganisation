@@ -64,7 +64,7 @@ header {
 }
 
 #nav {
-    background-image: url("/FRONT/images/jpg/pexels-elevate-1267350.jpg");
+    background-image: url("../images/jpg/pexels-elevate-1267350.jpg");
     height: 600px;
     background-size: cover;
     background-position: center;
@@ -245,8 +245,4 @@ header {
 
 #filtre button:hover {
     background-color: #b121a5;
-}
-
-#filtre-resultat {
-    
 }
