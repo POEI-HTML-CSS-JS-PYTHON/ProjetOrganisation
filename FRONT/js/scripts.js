@@ -1,31 +1,3 @@
-// Appelle api
-const apiUrl = 'https://api.example.com/nom';
-
-        async function fetchAndDisplayName() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                const nom = data.nom;
-
-                document.getElementById('bonjour-n').textContent = nom;
-
-            } catch (error) {
-                console.error('Erreur lors de l\'appel à l\'API:', error);
-            }
-        }
-
-        fetchAndDisplayName();
-
-
-
-
-
-
-
-
-
-
-
 // Scroll du header
 window.addEventListener("scroll", function() {
     let header = document.querySelector("header");

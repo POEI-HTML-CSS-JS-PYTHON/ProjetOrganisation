@@ -11,12 +11,12 @@
     <header>
         <div id="headertop">
             <div id="bonjour">
-                <span>Bonjour <p id="bonjour-n"></p></span>
+                <span>Connecté avec <p id="bonjour-n"></p></span>
             </div>
             <p id="headertop-p">
                 <a href="#">S'INSCRIRE</a>
                 <span>|</span>
-                <a href="#">SE CONNECTER</a>
+                <a href="#" onclick="loginUser()">SE CONNECTER</a>
             </p>
             <div id="cart-info">
                 <a href="../html/paiement.html" id="cart-link">
@@ -130,4 +130,6 @@
     </section>
 </body>
 <script src="../js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/apitohtml.js"></script>
 </html>
