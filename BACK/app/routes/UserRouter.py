@@ -125,4 +125,5 @@ def create_admin_user(user: UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
     
-    return {"message": f"Utilisateur {user.email} créé avec le rôle {user.role} 🎉"}
+    return f"Utilisateur : {user.email} créé avec le rôle {user.role} 🎉"
+
