@@ -1,15 +1,14 @@
 from pydantic import BaseModel
-from datetime import datetime
 
 class ReservationBase(BaseModel):
-    utilisateur_id: int 
-    evenement_id: int
-    status: str = "confirmé"  # Valeur par défaut
-    date_de_reservation: datetime
+    event_id: int
+    user_id: int
+
 class ReservationCreate(ReservationBase):
-    pass  # Vous pouvez ajouter des validations supplémentaires ici si nécessaire
+    pass
 
 class Reservation(ReservationBase):
-    id: int  # Identifiant unique de la réservation
+    id: int
+
     class Config:
-        from_attributes = True  # Permet la conversion depuis un modèle SQLAlchemy
+        orm_mode = True

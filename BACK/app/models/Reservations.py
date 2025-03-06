@@ -1,13 +1,15 @@
-from sqlmodel import SQLModel, Field, Relationship
-from typing import Optional
-from datetime import datetime
+from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy.orm import relationship
+from database import Base
 
-class Reservations(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    utilisateur_id: int = Field(foreign_key="user.id")
-    evenement_id: int = Field(foreign_key="evenements.id")
-    date_de_reservation: datetime
-    status: str = Field(default="confirmed")
+class Reservation(Base):
+    __tablename__ = 'reservations'
 
-    user: Optional["User"] = Relationship(back_populates="reservations")
-    evenement: Optional["Evenements"] = Relationship(back_populates="reservations")
+    id = Column(Integer, primary_key=True, index=True)
+    event_id = Column(Integer, ForeignKey('events.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
+
+    event = relationship("Event", back_populates="reservations")
+    user = relationship("User", back_populates="reservations")
+
+

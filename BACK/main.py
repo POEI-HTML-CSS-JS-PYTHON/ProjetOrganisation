@@ -6,10 +6,6 @@ from contextlib import asynccontextmanager
 # 📌 Assurer que `app/` est bien reconnu comme un module Python
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
  
-# ✅ Importation correcte des routes
-from database import create_db_and_tables
-from app.routes.UserRouter import router as auth_router  # ✅ Corrigé
- 
 # 🎯 Nouveau gestionnaire `lifespan` au lieu de `@app.on_event`
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -24,9 +20,13 @@ async def lifespan(app: FastAPI):
 # 🎯 Initialisation de l'application FastAPI avec `lifespan`
 app = FastAPI(title="API de réservation d'événements", version="1.0", lifespan=lifespan)
  
+# ✅ Importation correcte des routes
+from database import create_db_and_tables
+from app.routes.UserRouter import router as auth_router
+from app.routes.reservation import router as reservation_router
 # 🚀 Inclusion des routes
-app.include_router(auth_router, prefix="/auth", tags=["Authentification"])  # ✅ Corrigé
- 
+app.include_router(auth_router, prefix="/auth", tags=["Authentification"])  
+app.include_router(reservation_router, prefix="/res", tags =["Réservation"])
 # 🏠 Route d'accueil
 @app.get("/")
 def home():
