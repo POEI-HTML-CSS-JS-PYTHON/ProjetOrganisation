@@ -25,3 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-item');
+
+function showSlide(index) {
+    for (let slide of slides) {
+        slide.classList.remove('active');
+    }
+    slides[index].classList.add('active');
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1; // Retour à la dernière diapositive
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0; // Retour à la première diapositive
+    }
+    showSlide(currentSlide);
+}
+
+// Montre la première diapositive au chargement
+showSlide(currentSlide);

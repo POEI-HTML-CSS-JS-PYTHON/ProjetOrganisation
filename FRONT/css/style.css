@@ -46,7 +46,7 @@ header {
 
 #nav {
     background-image: url("/FRONT/images/jpg/pexels-elevate-1267350.jpg");
-    height: 500px;
+    height: 600px;
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -76,7 +76,7 @@ header {
 }
 
 #section {
-    padding-top: 100px;
+    padding-top: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +105,7 @@ header {
 }
 
 #cont-sec{
-    padding-top: 99px;
+    padding-top: 129px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,3 +163,4 @@ header {
             border-radius: 0px 0px 0px 0px;
         }
 }
+
