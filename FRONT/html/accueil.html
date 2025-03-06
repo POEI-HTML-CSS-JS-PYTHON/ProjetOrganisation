@@ -10,11 +10,20 @@
 <body>
     <header>
         <div id="headertop">
+            <div id="bonjour">
+                <span>Bonjour Benjamin !</span>
+            </div>
             <p id="headertop-p">
                 <a href="#">S'INSCRIRE</a>
                 <span>|</span>
-                <a href="#">SE  CONNECTER</a>
+                <a href="#">SE CONNECTER</a>
             </p>
+            <div id="cart-info">
+                <a href="#" id="cart-link">
+                    <span id="cart-value">0</span>
+                    <img src="/FRONT/ico/shhh.svg"alt="Panier" id="cart-icon">
+                </a>
+            </div>
         </div>
     </header>
     <section id="nav">
@@ -86,6 +95,35 @@
             <button class="carousel-control-prev" onclick="changeSlide(-1)">&#10094;</button>
             <button class="carousel-control-next" onclick="changeSlide(1)">&#10095;</button>
         </div>
+    </section>
+    <section id="filtre">
+        <h2>Rechercher un Événement</h2>
+            <form>
+            <div class="form-group">
+                <label for="lieux">Lieux</label>
+                <input type="text" id="lieux" placeholder="Entrez un lieu" required>
+            </div>
+            <div class="form-group">
+                <label for="date-debut">Date de début</label>
+                <input type="date" id="date-debut" required>
+            </div>
+            <div class="form-group">
+                <label for="date-fin">Date de fin</label>
+                <input type="date" id="date-fin" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type d'événement</label>
+                <select id="type" required>
+                    <option value="">Sélectionnez un type</option>
+                    <option value="show">Show</option>
+                    <option value="concert">Concert</option>
+                    <option value="festival">Festival</option>
+                    <option value="live">Live</option>
+                    <option value="dj-set">DJ Set</option>
+                </select>
+            </div>
+                <button type="submit">Rechercher</button>
+            </form>
     </section>
 </body>
 <script src="/FRONT/js/scripts.js"></script>

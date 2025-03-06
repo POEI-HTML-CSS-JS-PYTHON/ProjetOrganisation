@@ -33,8 +33,27 @@ header {
     color: white;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 10px;
     align-items: center;
+}
+#bonjour{
+    font-family: Kodchasan;
+}
+#cart-info {
+    display: flex;
+    align-items: center; /* Aligner verticalement le panier et la valeur */
+}
+
+#cart-value {
+    color: white;
+    font-family: Kodchasan;
+}
+
+#cart-icon {
+    width: 24px; /* Ajustez la taille selon besoin */
+    height: 24px; /* Ajustez la taille selon besoin */
+    margin-right: 5px; /* Espacement entre l'icône et la valeur */
 }
 
 #headertop p a {
@@ -162,5 +181,68 @@ header {
     #active-w {
             border-radius: 0px 0px 0px 0px;
         }
+    #filtre {
+        height: 200px !important;
+    }
+}
+#filtre{
+    height: 200px;
+    background: linear-gradient(90deg, rgba(191,18,128,1) 0%, rgba(52,0,89,1) 100%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+#filtre h2 {
+    text-align: center;
+    color: #ffffff;
+    font-family: Kodchasan;
+    font-weight: bold;
 }
 
+#filtre form {
+    padding-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: Kodchasan;
+    color: white;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 120px;
+}
+
+#filtre label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+#filtre input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: rgb(129, 129, 129);
+}
+
+#filtre button {
+    background-color: #bb167c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 120px;
+}
+
+#filtre button:hover {
+    background-color: #b121a5;
+}
