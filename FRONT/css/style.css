@@ -110,7 +110,6 @@ header {
     justify-content: center;
     align-items: center;
 }
-
 #cont-sec button {
     padding: 10px 30px;
     height: 60px;
@@ -136,4 +135,31 @@ header {
 }
 #cont-sec button:hover {
     background-color: #ff69b4 !important;
+}
+
+#menu-icon {
+    display: none; /* Par défaut, caché sur les grands écrans */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 4px;
+    width: 30px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 820px) {
+    #cont-sec {
+        flex-wrap: wrap;
+        display: flex;
+    }
+    #active-v {
+            border-radius: 0px 0px 0px 0px;
+        }
+    #active-w {
+            border-radius: 0px 0px 0px 0px;
+        }
 }
