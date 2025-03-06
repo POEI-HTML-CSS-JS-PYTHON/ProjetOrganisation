@@ -16,7 +16,7 @@ function createEvent() {
   const lieu = document.getElementById("lieu").value;
   const capacite = parseInt(document.getElementById("capacite").value);
 
-  fetch("http://127.0.0.1:8000/events/", {
+  fetch("http://127.0.0.1:8000/evenements/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
