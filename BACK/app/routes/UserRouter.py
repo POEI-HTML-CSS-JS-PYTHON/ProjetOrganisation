@@ -95,17 +95,19 @@ def logout(response: Response):
 
 
 @router.get("/me")
-def get_me(current_user: User = Depends(get_current_user)):
-     return {
-        "id": current_user.id,
+def get_me(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    # ✅ Récupérer les réservations de l'utilisateur
+    reservations = db.exec(select(Reservations).where(Reservations.user_id == current_user.id)).all()
+
+    return {
         "email": current_user.email,
         "role": current_user.role,
         "reservations": [
             {
                 "id": r.id,
-                "event_id": r.event_id,
-                "date_reservation": r.date_reservation,
-                "status": r.status  # Exemple : confirmé / en attente
+                "event_id": r.event_id,  # 🔥 Ajoute l'ID de l'événement réservé
+                "status": r.status,  # 🔥 Ajoute le statut de la réservation
+                "date_reservation": r.date_reservation  # 🔥 Ajoute la date de réservation
             } for r in reservations
         ]
     }
