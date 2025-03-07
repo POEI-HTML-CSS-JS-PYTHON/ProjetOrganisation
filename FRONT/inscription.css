@@ -6,13 +6,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1b1b1b;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url(../FRONT/images/jpg/pexels-elevate-1267350.jpg);
     background-size: cover;
 }
 
