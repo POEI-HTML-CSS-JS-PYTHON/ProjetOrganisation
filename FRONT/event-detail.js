@@ -17,6 +17,8 @@ function loadEventDetails() {
     return;
   }
 
+  console.log(`🔍 Chargement des détails pour l'événement ID : ${eventId}`);
+
   fetch(`http://127.0.0.1:8000/evenements/${eventId}`)
     .then((response) => {
       if (!response.ok) {
@@ -36,12 +38,16 @@ function loadEventDetails() {
       const container = document.getElementById("event-details");
       container.innerHTML = `
                 <h2>${event.title}</h2>
+                <p><strong>🆔 ID :</strong> ${event.id}</p>
                 <p><strong>Description :</strong> ${event.description}</p>
                 <p><strong>📍 Lieu :</strong> ${event.lieu}</p>
                 <p><strong>📅 Date :</strong> ${
                   event.date_debut.split("T")[0]
                 } - ${event.date_fin.split("T")[0]}</p>
                 <p><strong>👥 Capacité :</strong> ${event.capacite}</p>
+                <p><strong>👤 Organisateur ID :</strong> ${
+                  event.organizer_id
+                }</p>
             `;
     })
     .catch((error) => {
