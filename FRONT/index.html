@@ -4,13 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
     <h1>Test de connexion au backend</h1>
+
     <button onclick="testAPI()">Appeler le backend</button>
     <button onclick="registerUser()">S'inscrire</button>
-    <button onclick="loginUser()">Se connecter</button>
     <button onclick="getUserInfo()">Vérifier l'utilisateur</button>
+    <button onclick="disconnectUser()">Se déconnecter</button>
+
+    <h2>Connexion</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Mot de passe"
+        required
+      />
+      <button type="submit">Se connecter</button>
+    </form>
 
     <p id="result"></p>
 

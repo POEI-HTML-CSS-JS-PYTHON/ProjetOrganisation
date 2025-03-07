@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajouter un Événement</title>
+    <link rel="stylesheet" href="../styles/add-event.css" />
+  </head>
+  <body>
+    <h1>➕ Ajouter un Nouvel Événement</h1>
+
+    <form id="eventForm">
+      <input type="text" id="title" placeholder="Titre" required />
+      <textarea id="description" placeholder="Description" required></textarea>
+      <input type="datetime-local" id="date_debut" required />
+      <input type="datetime-local" id="date_fin" required />
+      <input type="text" id="lieu" placeholder="Lieu" required />
+      <input type="number" id="capacite" placeholder="Capacité" required />
+      <button type="submit">Créer l'Événement</button>
+    </form>
+
+    <button onclick="window.location.href='events.html'">
+      ⬅ Retour aux événements
+    </button>
+
+    <p id="message"></p>
+
+    <script src="./add-event.js"></script>
+  </body>
+</html>
