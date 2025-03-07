@@ -68,7 +68,7 @@ def login(user: UserLogin, response: Response, db: Session = Depends(get_db)):
         key="access_token",
         value=f"Bearer {access_token}",
         httponly=True,
-        samesite="None",
+        samesite=None,
         secure=not IS_LOCAL,  # ✅ False en local, True en production
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,  # ✅ Expiration en secondes
         path="/"  # ✅ Pour s’assurer que le cookie est accessible partout
@@ -144,4 +144,3 @@ def create_admin_user(user: UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
     
     return f"Utilisateur : {user.email} créé avec le rôle {user.role} 🎉"
-

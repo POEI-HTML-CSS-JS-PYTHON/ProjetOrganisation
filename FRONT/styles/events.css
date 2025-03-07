@@ -1,31 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #6bb6ff, #4a90e2);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background-color: #ffffff;
+  width: 450px;
+  max-width: 90%;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  background-color: #f4f4f4;
-  margin: 20px;
 }
 
 h1 {
+  font-size: 24px;
+  font-weight: 600;
   color: #333;
-}
-
-button {
-  padding: 10px 20px;
   margin-bottom: 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #45a049;
 }
 
 #events-container {
-  margin: 20px auto;
-  max-width: 600px;
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -33,29 +43,55 @@ button:hover {
   background: white;
   padding: 15px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .event:hover {
-  background: #e6e6e6;
+  background: #f0f0f0;
+  transform: scale(1.02);
+}
+
+button {
+  width: 70%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #357ab7;
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-  #events-container {
+  .container {
     width: 85%;
+  }
+
+  h1 {
+    font-size: 22px;
   }
 
   button {
     font-size: 15px;
+    padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  body {
-    margin: 10px;
-    padding: 5px;
+  .container {
+    width: 95%;
+    padding: 25px;
   }
 
   h1 {
@@ -66,10 +102,6 @@ button:hover {
     width: 100%;
     font-size: 14px;
     padding: 10px;
-  }
-
-  #events-container {
-    width: 95%;
   }
 
   .event {
