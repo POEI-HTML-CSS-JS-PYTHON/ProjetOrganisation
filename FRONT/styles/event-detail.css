@@ -1,36 +1,64 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f4f4f4;
-  margin: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-h1 {
-  color: #333;
+body {
+  background: linear-gradient(to bottom, #6bb6ff, #4a90e2);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 #event-details {
-  margin: 20px auto;
-  max-width: 600px;
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 500px;
+  max-width: 90%;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
 
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
 button {
-  padding: 10px 20px;
+  width: 70%;
+  padding: 12px;
   margin-top: 20px;
+  border: none;
+  border-radius: 8px;
   background-color: #007bff;
   color: white;
-  border: none;
-  cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -38,24 +66,32 @@ button:hover {
     width: 85%;
   }
 
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
   button {
     font-size: 15px;
+    padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  body {
-    margin: 10px;
-    padding: 5px;
+  #event-details {
+    width: 95%;
+    padding: 25px;
   }
 
   h1 {
     font-size: 20px;
   }
 
-  #event-details {
-    width: 95%;
-    padding: 15px;
+  p {
+    font-size: 14px;
   }
 
   button {
