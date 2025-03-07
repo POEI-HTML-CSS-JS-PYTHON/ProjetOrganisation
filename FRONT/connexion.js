@@ -1,33 +1,32 @@
+// Dans votre script de connexion (login.js)
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
+    
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
-    fetch('http://127.0.0.1:8000/login', {
+    
+    fetch('http://127.0.0.1:8000/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email, password: password }),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Identifiants incorrects');
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        if (data.detail) {
-            document.getElementById('message').textContent = data.detail;
+        if (data.token) {
+            // Stocker le token dans localStorage
+            localStorage.setItem('authToken', data.token);
+            // Stocker les informations de l'utilisateur si nécessaire
+            localStorage.setItem('userEmail', email);
+            
+            // Rediriger vers la page de réservation
+            window.location.href = 'http://127.0.0.1:3000/html/reservation.html';
         } else {
-            document.getElementById('message').textContent = 'Connexion réussie! Vous allez être redirigé';
-            setTimeout(() => {
-                window.location.href = 'http://127.0.0.1:3000/html/accueil.html';
-            }, 2000);
+            document.getElementById('message').textContent = 'Échec de connexion: ' + (data.detail || 'Erreur inconnue');
         }
     })
     .catch(error => {
-        document.getElementById('message').textContent = error.message;
+        console.error('Erreur:', error);
     });
 });
