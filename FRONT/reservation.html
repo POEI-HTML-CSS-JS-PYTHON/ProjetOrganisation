@@ -3,25 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer une Réservation</title>
-    <link rel="stylesheet" href="reservation.css">
+    <title>Réservation d'Événement</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h2>Créer une Réservation</h2>
-        <form id="createReservationForm">
-            <div class="form-group">
-                <label for="covenant_id">ID de l'événement:</label>
-                <input type="number" id="covenant_id" name="covenant_id" required>
-            </div>
-            <div class="form-group">
-                <label for="date_dr_reservation">Date de réservation:</label>
-                <input type="datetime-local" id="date_dr_reservation" name="date_dr_reservation" required>
-            </div>
-            <button type="submit">Créer la réservation</button>
-        </form>
-        <p id="message"></p>
+        <h2>Réserver un Événement</h2>
+        <label for="eventIdInput">ID de l'événement :</label>
+        <input type="number" id="eventIdInput" placeholder="Entrez l'ID de l'événement" required>
+        <button id="reserveButton">Réserver</button>
+        <p id="result"></p>
     </div>
-    <script src="reservation.js"></script>
+
+    <script src="reservations.js"></script>
 </body>
 </html>

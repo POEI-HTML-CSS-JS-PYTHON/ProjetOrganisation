@@ -1,47 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Vérifier si l'utilisateur est connecté
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-        window.location.href = 'http://127.0.0.1:3000/html/login.html';
-        return;
-    }
-    
-    // Optionnel : afficher des informations personnalisées
-    const userEmail = localStorage.getItem('userEmail');
-    if (userEmail) {
-        document.getElementById('userGreeting').textContent = `Bonjour, ${userEmail}`;
-    }
-});
+function createReservation(eventId) {
+    const reservationData = {
+        evenement_id: eventId,
+        date_de_reservation: new Date().toISOString(), // Date actuelle au format ISO 8601
+    };
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    fetch('http://127.0.0.1:8000/auth/login', {
-        method: 'POST',
+    fetch("http://127.0.0.1:8000/reservations/", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: email, password: password }),
+        credentials: "include", // Pour envoyer les cookies si nécessaire
+        body: JSON.stringify(reservationData),
     })
     .then(response => response.json())
     .then(data => {
-        if (data.acess_token) {
-            // Stocker le token dans localStorage
-            localStorage.setItem('authToken', data.token);
-            // Stocker les informations de l'utilisateur si nécessaire
-            localStorage.setItem('userEmail', email);
-            
-            // Rediriger vers la page de réservation
-            window.location.href = 'http://127.0.0.1:3000/html/reservation.html';
-        } else {
-            document.getElementById('message').textContent = 'Échec de connexion: ' + (data.detail || 'Erreur inconnue');
-        }
+        console.log("Réservation créée :", data);
+        document.getElementById("result").innerText = "Réservation confirmée !";
     })
     .catch(error => {
-        console.error('Erreur:', error);
+        console.error("Erreur lors de la réservation :", error);
+        document.getElementById("result").innerText = "Erreur lors de la réservation.";
     });
+}
+
+// Exemple : Appeler la fonction avec un ID d'événement spécifique
+document.getElementById("reserveButton").addEventListener("click", () => {
+    const eventId = document.getElementById("eventIdInput").value;
+    if (eventId) {
+        createReservation(parseInt(eventId));
+    } else {
+        alert("Veuillez entrer un ID d'événement valide.");
+    }
 });
