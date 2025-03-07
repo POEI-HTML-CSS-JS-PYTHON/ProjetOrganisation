@@ -9,7 +9,7 @@
 
 body {
     width: 100%;
-    height: 9000px;
+    height: 900px;
 }
 
 header {
@@ -245,4 +245,18 @@ header {
 
 #filtre button:hover {
     background-color: #b121a5;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    font-family: Kodchasan;
+    height: 75px;
+}
+
+footer .big-z {
+    font-size: 20px;
 }
