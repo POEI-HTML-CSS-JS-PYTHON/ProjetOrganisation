@@ -41,3 +41,39 @@ button:hover {
 .event:hover {
   background: #e6e6e6;
 }
+
+@media (max-width: 768px) {
+  #events-container {
+    width: 85%;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #events-container {
+    width: 95%;
+  }
+
+  .event {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
