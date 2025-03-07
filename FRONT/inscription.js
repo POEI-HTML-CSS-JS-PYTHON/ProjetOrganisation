@@ -17,10 +17,13 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         if (data.detail) {
             document.getElementById('message').textContent = data.detail;
         } else {
-            document.getElementById('message').textContent = 'Inscription réussie!';
-            // Rediriger l'utilisateur ou effectuer d'autres actions
+            document.getElementById('message').textContent = 'Inscription réussie! Vous allez être redirigé vers la page d\'accueil.';
+            setTimeout(() => {
+                window.location.href = 'http://127.0.0.1:3000/html/accueil.html';
+            }, 2000);
         }
-    })
+        }
+    )
     .catch(error => {
         console.error('Erreur:', error);
     });

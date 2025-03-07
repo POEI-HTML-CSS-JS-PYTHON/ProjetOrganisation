@@ -16,8 +16,10 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (data.detail) {
             document.getElementById('message').textContent = data.detail;
         } else {
-            document.getElementById('message').textContent = 'Connexion réussie!';
-            // Rediriger l'utilisateur ou effectuer d'autres actions
+            document.getElementById('message').textContent = 'Connexion réussie! Vous allez être redirigé';
+            setTimeout(() => {
+                window.location.href = 'http://127.0.0.1:3000/html/accueil.html';
+            }, 2000);
         }
     })
     .catch(error => {
