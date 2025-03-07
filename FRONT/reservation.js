@@ -1,15 +1,19 @@
-document.getElementById('createReservationForm').addEventListener('submit', function(event) {
+document.getElementById('reservationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const covenant_id = document.getElementById('covenant_id').value;
-    const date_dr_reservation = document.getElementById('date_dr_reservation').value;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const date_about = document.getElementById('date_about').value;
+    const date_full = document.getElementById('date_full').value;
+    const list = document.getElementById('list').value;
+    const capacite = document.getElementById('capacite').value;
 
-    fetch('http://127.0.0.1:8000/reservations/', {
+    fetch('http://127.0.0.1:8000/evenenents/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ covenant_id, date_dr_reservation }),
+        body: JSON.stringify({ title, description, date_about, date_full, list, capacite }),
     })
     .then(response => response.json())
     .then(data => {
@@ -17,7 +21,6 @@ document.getElementById('createReservationForm').addEventListener('submit', func
             document.getElementById('message').textContent = data.detail;
         } else {
             document.getElementById('message').textContent = 'Réservation créée avec succès!';
-            // Rediriger l'utilisateur ou effectuer d'autres actions
         }
     })
     .catch(error => {
