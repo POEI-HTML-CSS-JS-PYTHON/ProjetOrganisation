@@ -12,6 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url(images/jpg/pexels-elevate-1267350.jpg);
     background-size: cover;
 }
 
