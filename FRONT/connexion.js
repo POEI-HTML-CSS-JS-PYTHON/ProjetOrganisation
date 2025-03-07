@@ -1,28 +1,26 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        loginUser();
+    });
+});
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+function loginUser() {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
 
-    fetch('http://127.0.0.1:8000/auth/login', {
-        method: 'POST',
+    fetch("http://127.0.0.1:8000/auth/login", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
+        credentials: "include", // Envoi et réception des cookies
         body: JSON.stringify({ email, password }),
     })
     .then(response => response.json())
     .then(data => {
-        if (data.detail) {
-            document.getElementById('message').textContent = data.detail;
-        } else {
-            document.getElementById('message').textContent = 'Connexion réussie! Vous allez être redirigé';
-            setTimeout(() => {
-                window.location.href = 'http://127.0.0.1:3000/html/accueil.html';
-            }, 2000);
-        }
+        console.log("Réponse Connexion:", data);
+        document.getElementById("result").innerText = data.message || JSON.stringify(data);
     })
-    .catch(error => {
-        console.error('Erreur:', error);
-    });
-});
+    .catch(error => console.error("Erreur :", error));
+}
