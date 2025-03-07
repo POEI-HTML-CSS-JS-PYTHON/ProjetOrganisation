@@ -16,6 +16,10 @@ def create_evenement(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)  # 🔒 Vérifie le token JWT
 ):
+
+    if current_user.role not in ["admin", "organisateur"]:
+        raise HTTPException(status_code=403, detail="Accès interdit : Seuls les administrateurs et les organisateurs peuvent créer un événement.")
+
     new_event = Evenements(**event.dict(), organizer_id=current_user.id)
     db.add(new_event)
     db.commit()
