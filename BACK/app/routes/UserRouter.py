@@ -96,7 +96,19 @@ def logout(response: Response):
 
 @router.get("/me")
 def get_me(current_user: User = Depends(get_current_user)):
-    return {"email": current_user.email, "role": current_user.role}
+     return {
+        "id": current_user.id,
+        "email": current_user.email,
+        "role": current_user.role,
+        "reservations": [
+            {
+                "id": r.id,
+                "event_id": r.event_id,
+                "date_reservation": r.date_reservation,
+                "status": r.status  # Exemple : confirmé / en attente
+            } for r in reservations
+        ]
+    }
 
 
 from app.schemas.UserSchema import UserRoleUpdate
