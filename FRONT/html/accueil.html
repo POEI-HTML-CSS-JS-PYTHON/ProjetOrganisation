@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/carousel.css">
+</head>
+<body>
+    <header>
+        <div id="headertop">
+            <div id="bonjour">
+                <span>Connecté avec <p id="bonjour-n"></p></span>
+            </div>
+            <p id="headertop-p">
+                <a href="#">S'INSCRIRE</a>
+                <span>|</span>
+                <a href="#" onclick="loginUser()">SE CONNECTER</a>
+            </p>
+            <div id="cart-info">
+                <a href="../html/paiement.html" id="cart-link">
+                    <span id="cart-value">0</span>
+                    <img src="../ico/shhh.svg"alt="Panier" id="cart-icon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <section id="nav">
+        <div id="head-nav">
+            <a href="#">CONCERT</a>
+            <a href="#">FESTIVAL</a>
+            <a href="#">SHOW</a>
+        </div>
+        <div id="section">
+            <p class="title">Organi<span class="big-z">Z</span></p>
+            <p id="slog">Une fête, une envie ? </br>
+            Découvrez notre site avec plus de 15.000 offres !
+            </p>
+        </div>
+        <div id="cont-sec">
+            <button id="active-v" class="cont-paris">PARIS</button>
+            <button class="cont-lyon">LYON</button>
+            <button class="cont-bordeaux">BORDEAUX</button>
+            <button class="cont-toulouse">TOULOUSE</button>
+            <button class="cont-marseille">MARSEILLE</button>
+            <button class="cont-lille">LILLE</button>
+            <button id="active-w" class="cont-tous">TOUS</button>
+        </div>
+    </section>
+    <section id="ville-sec">
+        <div id="carousel-ville">
+            <div class="carousel-item active">
+                <a href="">
+                    <img src="../images/jpg/wallpapersden.com_mediterranean-sea-sunset_1920x1080.jpg" alt="Événement 1">
+                </a>
+                <div class="carousel-caption">
+                    <h3>Concert de Rock</h3>
+                    <p>Description de l'événement.</p>
+                    <p>Date de début: 15 Juin 2023</p>
+                    <p>Date de fin: 20 Juin 2023</p>
+                    <p>Lieu: Paris</p>
+                    <p>Capacité: 500 personnes</p>
+                    <p>Type: Concert</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="">
+                    <img src="../images/jpg/pexels-elevate-1267350.jpg" alt="Événement 2">
+                </a>
+                <div class="carousel-caption">
+                    <h3>Festival de Jazz</h3>
+                    <p>Description de l'événement.</p>
+                    <p>Date de début: 25 Août 2023</p>
+                    <p>Date de fin: 27 Août 2023</p>
+                    <p>Lieu: Lyon</p>
+                    <p>Capacité: 1000 personnes</p>
+                    <p>Type: Festival</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="">
+                    <img src="../images/jpg/pexels-elevate-1267350.jpg" alt="Événement 3">
+                </a>
+                <div class="carousel-caption">
+                    <h3>Show de Magie</h3>
+                    <p>Description de l'événement.</p>
+                    <p>Date de début: 10 Septembre 2023</p>
+                    <p>Date de fin: 10 Septembre 2023</p>
+                    <p>Lieu: Bordeaux</p>
+                    <p>Capacité: 300 personnes</p>
+                    <p>Type: Show</p>
+                </div>
+            </div>
+            <button class="carousel-control-prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="carousel-control-next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
+    <section id="filtre">
+        <h2>Rechercher un Événement</h2>
+            <form>
+            <div class="form-group">
+                <label for="lieux">Lieux</label>
+                <input type="text" id="lieux" placeholder="Entrez un lieu" required>
+            </div>
+            <div class="form-group">
+                <label for="date-debut">Date de début</label>
+                <input type="date" id="date-debut" required>
+            </div>
+            <div class="form-group">
+                <label for="date-fin">Date de fin</label>
+                <input type="date" id="date-fin" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type d'événement</label>
+                <select id="type" required>
+                    <option value="">Sélectionnez un type</option>
+                    <option value="show">Show</option>
+                    <option value="concert">Concert</option>
+                    <option value="festival">Festival</option>
+                    <option value="live">Live</option>
+                    <option value="dj-set">DJ Set</option>
+                </select>
+            </div>
+                <button type="submit">Rechercher</button>
+            </form>
+    </section>
+    <section id="filtre-resultat">
+
+    </section>
+</body>
+<script src="../js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/apitohtml.js"></script>
+</html>
