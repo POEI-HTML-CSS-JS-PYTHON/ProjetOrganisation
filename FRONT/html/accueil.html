@@ -38,15 +38,6 @@
             Découvrez notre site avec plus de 15.000 offres !
             </p>
         </div>
-        <div id="cont-sec">
-            <button id="active-v" class="cont-paris">PARIS</button>
-            <button class="cont-lyon">LYON</button>
-            <button class="cont-bordeaux">BORDEAUX</button>
-            <button class="cont-toulouse">TOULOUSE</button>
-            <button class="cont-marseille">MARSEILLE</button>
-            <button class="cont-lille">LILLE</button>
-            <button id="active-w" class="cont-tous">TOUS</button>
-        </div>
     </section>
     <section id="ville-sec">
         <div id="carousel-ville">
@@ -98,35 +89,23 @@
     </section>
     <section id="filtre">
         <h2>Rechercher un Événement</h2>
-            <form>
+            <form id="search-form">
             <div class="form-group">
                 <label for="lieux">Lieux</label>
                 <input type="text" id="lieux" placeholder="Entrez un lieu" required>
             </div>
             <div class="form-group">
                 <label for="date-debut">Date de début</label>
-                <input type="date" id="date-debut" required>
+                <input type="date" id="date-debut">
             </div>
             <div class="form-group">
                 <label for="date-fin">Date de fin</label>
-                <input type="date" id="date-fin" required>
+                <input type="date" id="date-fin">
             </div>
-            <div class="form-group">
-                <label for="type">Type d'événement</label>
-                <select id="type" required>
-                    <option value="">Sélectionnez un type</option>
-                    <option value="show">Show</option>
-                    <option value="concert">Concert</option>
-                    <option value="festival">Festival</option>
-                    <option value="live">Live</option>
-                    <option value="dj-set">DJ Set</option>
-                </select>
-            </div>
-                <button type="submit">Rechercher</button>
+                <button type="button" id="search-button">Rechercher</button>
             </form>
     </section>
-    <section id="filtre-resultat">
-
+    <section id="events-list">
     </section>
     <footer>
         <p>Organi<span class="big-z">Z</span> - Tous droits réservés 2023</p>
@@ -138,4 +117,5 @@
 <script src="../js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/apitohtml.js"></script>
+<script src="../event-paris.js"></script>
 </html>

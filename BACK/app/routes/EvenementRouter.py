@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends
-from sqlmodel import Session, select
+from sqlmodel import Session, func, select
 from database import get_db
 from app.models.Evenements import Evenements
 from app.schemas.EventSchema import EventCreate, EventUpdate
@@ -86,3 +86,18 @@ def delete_evenement(
     db.commit()
     return {"message": "Événement supprimé avec succès"}
 
+# ✅ 6️⃣ Filtrer les événements par lieu (ex: Paris)
+@router.get("/filter/{lieu}", response_model=List[Evenements])
+def filter_evenements_by_lieu(
+    lieu: str,
+    db: Session = Depends(get_db)
+):
+    # Utilisation de func.lower pour un filtre insensible à la casse
+    statement = select(Evenements).where(func.lower(Evenements.lieu) == func.lower(lieu))
+    events = db.exec(statement).all()
+    if len(events) == 0:
+        print("Pas d'event")
+    if not events:
+        raise HTTPException(status_code=404, detail=f"Aucun événement trouvé pour le lieu : {lieu}")
+    
+    return events

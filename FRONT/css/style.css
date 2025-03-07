@@ -260,3 +260,63 @@ footer{
 footer .big-z {
     font-size: 20px;
 }
+.event-content {
+    position: relative;
+    background: url(https://wallpaperaccess.com/full/284466.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+}
+
+/* Ajout d'un pseudo-élément pour le filtre noir */
+.event-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Noir à 50% de transparence */
+    border-radius: 15px;
+    z-index: 0;
+}
+.event-content * {
+    position: relative;
+    z-index: 2; /* Place le texte au-dessus du filtre */
+}
+#events-list {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color: #bb167c;
+    color: white;
+    font-family: Kodchasan;
+    height: 400px;
+    padding: 20px;
+    margin-top: 2px;
+    line-height: 50px;
+}
+
+.event-card {
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.eve-tit {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.eve-des, .eve-lieu, .eve-ddd, .eve-ddf, .eve-cap {
+    font-size: 1em;
+    margin: 5px 0;
+}
