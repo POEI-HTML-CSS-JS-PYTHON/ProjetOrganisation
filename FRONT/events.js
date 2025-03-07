@@ -1,3 +1,5 @@
+window.addEventListener("DOMContentLoaded", loadEvents);
+
 function loadEvents() {
   fetch("http://127.0.0.1:8000/evenements/")
     .then((response) => response.json())
@@ -31,3 +33,5 @@ function loadEvents() {
       console.error("❌ Erreur lors du chargement des événements :", error)
     );
 }
+
+window.addEventListener("DOMContentLoaded", loadEvents);
