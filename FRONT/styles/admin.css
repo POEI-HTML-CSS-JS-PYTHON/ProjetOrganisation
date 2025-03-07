@@ -87,3 +87,50 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 25px;
+    width: 85%;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}

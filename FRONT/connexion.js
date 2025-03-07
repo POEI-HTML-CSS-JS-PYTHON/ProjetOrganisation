@@ -18,9 +18,14 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         return response.json();
     })
     .then(data => {
-        document.getElementById('message').textContent = 'Connexion réussie!';
-        // Rediriger l'utilisateur vers une autre page ou effectuer d'autres actions
-        window.location.href = '/reservation.html'; // Redirection vers la page de réservation
+        if (data.detail) {
+            document.getElementById('message').textContent = data.detail;
+        } else {
+            document.getElementById('message').textContent = 'Connexion réussie! Vous allez être redirigé';
+            setTimeout(() => {
+                window.location.href = 'http://127.0.0.1:3000/html/accueil.html';
+            }, 2000);
+        }
     })
     .catch(error => {
         document.getElementById('message').textContent = error.message;

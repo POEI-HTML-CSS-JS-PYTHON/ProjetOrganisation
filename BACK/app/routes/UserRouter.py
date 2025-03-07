@@ -57,24 +57,42 @@ def login(user: UserLogin, response: Response, db: Session = Depends(get_db)):
     if not db_user or not verify_password(user.password, db_user.password):
         raise HTTPException(status_code=401, detail="Identifiants incorrects")
 
-    access_token = create_access_token(data={"sub": db_user.email}, expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    access_token = create_access_token(
+        data={"sub": db_user.email},
+        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    )
+
+    IS_LOCAL = os.getenv("ENV", "local") == "local"  # ✅ Change "prod" en production
 
     response.set_cookie(
         key="access_token",
         value=f"Bearer {access_token}",
         httponly=True,
-        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
-        samesite=None,
-        secure=True
+        samesite="None",
+        secure=not IS_LOCAL,  # ✅ False en local, True en production
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,  # ✅ Expiration en secondes
+        path="/"  # ✅ Pour s’assurer que le cookie est accessible partout
     )
 
     return {"message": "Connexion réussie"}
 
+
 # Route de déconnexion
 @router.post("/logout")
 def logout(response: Response):
-    response.delete_cookie("access_token")
+    print("✅ Déconnexion demandée, suppression du cookie...")
+
+    response.delete_cookie(
+        key="access_token",
+        path="/",
+        domain=None,  
+        samesite="None",
+        secure=False 
+    )
+
     return {"message": "Déconnexion réussie"}
+
+
 
 @router.get("/me")
 def get_me(current_user: User = Depends(get_current_user)):
